@@ -86,15 +86,31 @@ input, textarea {
     font-size: 16px;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #00bcd4; /* 水色のボタン */
+/* 料金表のスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #00bcd4; /* ヘッダーの背景色 */
     color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9; /* 偶数行の背景色 */
+}
+
+table tr:hover {
+    background-color: #f1f1f1; /* ホバー時の背景色 */
 }
 
 /* ホバー時のスタイル */
