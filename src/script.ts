@@ -12,3 +12,18 @@ document.getElementById('contactForm')?.addEventListener('submit', function(even
         alert('全てのフィールドを入力してください。');
     }
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('header');
+    const headerOffsetTop = header?.offsetTop || 0;
+
+    window.addEventListener('scroll', () => {
+        if (header) {
+            if (window.scrollY > headerOffsetTop) {
+                header.classList.add('fixed');
+            } else {
+                header.classList.remove('fixed');
+            }
+        }
+    });
+});
