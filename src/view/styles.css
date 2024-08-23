@@ -12,7 +12,7 @@ html, body {
 header {
     background-color: #00bcd4; /* 明るい水色の背景 */
     color: #fff;
-    padding: 20px;
+    padding: 12px 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     top: 0;
