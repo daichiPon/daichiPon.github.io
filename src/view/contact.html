@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お問い合わせ</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init("cciAgT2BLvMLPj7dW");
+        })();
+    </script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,24 +28,41 @@
             <h2>お問い合わせ</h2>
             <p>お気軽にお問い合わせください。</p>
             <p>電話: 080-4701-6455</p>
-            <p>Email: <a href="mailto:nakamotodaich@icloud.com">nakamotodaich@icloud.com</a></p>
+            <p>Email: <a href="mailto:nakamotodaichi@gmeil.com">nakamotodaichi@gmail.com</a></p>
             <form id="contactForm">
                 <label for="name">お名前:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="user_name" required>
                 
                 <label for="email">メールアドレス:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="user_email" required>
                 
                 <label for="message">メッセージ:</label>
                 <textarea id="message" name="message" required></textarea>
                 
-                <button type="submit">送信</button>
+                <button type="submit" value="Send">送信</button>
             </form>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 便利屋サービス</p>
     </footer>
-    <script src="script.js"></script>
+    
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // EmailJSを使用してフォームを送信
+                emailjs.sendForm('service_lhqdv3i', 'template_09a1tl9', this)
+                    .then(() => {
+                        console.log('メールが送信されました！');
+                        alert('お問い合わせありがとうございます！');
+                        this.reset(); // フォームをリセット
+                    }, (error) => {
+                        console.log('メールの送信に失敗しました...', error);
+                        alert('メールの送信に失敗しました。');
+                    });
+            });
+        };
+    </script>
 </body>
 </html>
