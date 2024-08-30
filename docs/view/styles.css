@@ -154,8 +154,8 @@ footer {
         padding: 100px 10px 10px; /* ヘッダーの高さに合わせて調整 */
     }
 
-    h1 {
-        font-size: 0.4em;
+    header h1 {
+        font-size: 1em;
     }
 
     h2 {
