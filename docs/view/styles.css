@@ -4,17 +4,15 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    font-size: 1rem;
     background-color: #e0f7fa; /* 水色の背景 */
     color: #333;
-    -webkit-text-size-adjust: 100%;
 }
 
 /* ヘッダー */
 header {
     background-color: #00bcd4; /* 明るい水色の背景 */
     color: #fff;
-    padding: 1rem; 
+    padding: 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     top: 0;
@@ -48,12 +46,10 @@ nav a:hover {
 
 /* メインコンテンツ */
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 120px 20px 10px;
+    padding: 120px 20px 10px; /* ヘッダーの高さに合わせてトップパディングを調整 */
     max-width: 1200px;
     margin: 0 auto;
+    flex: 1;
 }
 
 section {
@@ -82,7 +78,7 @@ label {
 }
 
 input, textarea {
-    width: 100%;
+    width: 98%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
@@ -167,7 +163,7 @@ footer {
     }
 
     form {
-        padding: 15px;
+        padding: 20px;
     }
 
     input, textarea {
