@@ -137,12 +137,11 @@ footer {
 /* スマートフォン向けの調整 (最大幅600pxの画面サイズ) */
 @media (max-width: 600px) {
     header {
-        padding: 10px;
-        font-size: 1em;
+        padding: 11px;
     }
     
     nav {
-        margin-top: 5px;
+        margin-top: 7px;
     }
 
     nav a {
@@ -156,6 +155,7 @@ footer {
 
     header h1 {
         font-size: 1.5sem;
+        margin: 0;
     }
 
     h2 {
