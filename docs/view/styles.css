@@ -155,11 +155,11 @@ footer {
     }
 
     h1 {
-        font-size: 1.5em;
+        font-size: 1em;
     }
 
     h2 {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
 
     form {
@@ -167,7 +167,7 @@ footer {
     }
 
     input, textarea {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     table th, table td {
