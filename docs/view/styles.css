@@ -4,6 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
+    font-size: 1rem;
     background-color: #e0f7fa; /* 水色の背景 */
     color: #333;
     -webkit-text-size-adjust: 100%;
@@ -13,7 +14,7 @@ html, body {
 header {
     background-color: #00bcd4; /* 明るい水色の背景 */
     color: #fff;
-    padding: 20px;
+    padding: 1rem; 
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     top: 0;
@@ -47,10 +48,12 @@ nav a:hover {
 
 /* メインコンテンツ */
 main {
-    padding: 120px 20px 10px; /* ヘッダーの高さに合わせてトップパディングを調整 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 120px 20px 10px;
     max-width: 1200px;
     margin: 0 auto;
-    flex: 1;
 }
 
 section {
@@ -134,3 +137,51 @@ footer {
     text-align: center;
     padding: 10px;
 }
+
+/* スマートフォン向けの調整 (最大幅600pxの画面サイズ) */
+@media (max-width: 600px) {
+    header {
+        padding: 10px;
+        font-size: 1.5em;
+    }
+    
+    nav {
+        margin-top: 5px;
+    }
+
+    nav a {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+
+    main {
+        padding: 100px 10px 10px; /* ヘッダーの高さに合わせて調整 */
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    input, textarea {
+        font-size: 14px;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 5px;
+        font-size: 0.8em;
+    }
+}
+
