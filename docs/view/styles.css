@@ -138,6 +138,7 @@ footer {
 @media (max-width: 600px) {
     header {
         padding: 10px;
+        font-size: 1em;
     }
     
     nav {
@@ -150,12 +151,11 @@ footer {
     }
 
     main {
-        padding: 115px 10px 10px; /* ヘッダーの高さに合わせて調整 */
+        padding: 120px 10px 10px; /* ヘッダーの高さに合わせて調整 */
     }
 
     header h1 {
-        font-size: 1sem;
-        margin: 0;
+        font-size: 1.3em;
     }
 
     h2 {
