@@ -134,6 +134,31 @@ footer {
     padding: 10px;
 }
 
+fieldset{
+    border: 5px double #000000; 
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.dli-chevron-down {
+
+    text-align:center;
+    padding:20px 0;
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    transform: translateY(-25%) rotate(135deg);
+    font-size: 50px;
+    display: flex;
+}
+
 /* スマートフォン向けの調整 (最大幅600pxの画面サイズ) */
 @media (max-width: 600px) {
     header {
