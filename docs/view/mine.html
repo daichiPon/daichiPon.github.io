@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR/daichi</title>
+  <style>
+    @font-face {
+        font-family: 'PixelMplus10';
+        src: url('./PixelMplus10.ttf') format('truetype');
+    }
+    body {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      background-color: #000;
+      font-family: 'PixelMplus10', 'Courier New', Courier, monospace;
+      line-height: 1.8;
+      letter-spacing: 0.1em;
+    }
+
+    .first-area {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background-color: #fff;
+    }
+
+    .qr-area {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    .qr-area img {
+      margin-top: 25%;
+      width: 30%;
+    }
+
+    .second-area {
+      display: none;
+      background-color: #000;
+    }
+
+    .typed-area {
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .link-area {
+      margin: 60px auto;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-out;
+      transform: translateY(30px);
+      transition: transform 0.5s ease-out;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .link-item img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .typed-cursor {
+      border: 1px solid;
+      color: #fff;
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="first-area">
+    <div class="qr-area">
+      <img id="qr-image" src="../view/mine.png" alt="QR">
+    </div>
+  </div>
+  <div class="second-area">
+    <div class="typed-area">
+      <span id="typed-element"></span>
+    </div>
+    <div class="link-area">
+      <a class="link-item" href="https://www.instagram.com/daicyuuuunn/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    const messages = [
+      ` ...で、お会いしたアナタ...<br>
+        聞こえますか...<br>
+        今、あなたの心に...直接...<br>
+        語りかけています...<br>
+        <br> 私は 
+        <strong>大阪市に住む人</strong><br>
+        <strong>ナカモト</strong> です...！<br>
+        <br>
+        いつもは会社で<br>
+        プログラマの仕事をしています...
+        `,
+        `
+        仕事を以外では<br>
+        スノボーが趣味で<br>
+        趣味の <strong>スノボー</strong> を上達するために<br>たまにキングスで練習しています...<br>
+        <br>
+        そのほかに、好きなことは<br>
+        <br>#プログラム 👨‍💻
+        <br>#音楽 🎶
+        <br>#マンガ 📖
+        <br>#カレー 🍛
+        <br>#ビール 🍺
+        <br>などです...<br><br>
+        もしよろしければ<br>
+        Instagram で<br>
+        アナタの近況も聞かせてください...！<br>
+        <br>
+        今後ともよろしくお願いします...！`
+    ];
+    const duration = 750;
+
+    window.onload = function () {
+      const timeline = anime.timeline({
+        loop: false,
+        autoplay: true,
+      })
+        .add({
+          targets: '#qr-image',
+          delay: duration * 1,
+          scale: [1, 500],
+          easing: 'easeInOutQuint',
+          duration: duration * 3,
+          rotate: 1080,
+          backgroundColor: '#000',
+          complete: function () {
+            document.querySelector('body').style.backgroundColor = '#000';
+            document.querySelector('.first-area').style.backgroundColor = '#000';
+          }
+        })
+        .add({
+          targets: '#qr-image',
+          opacity: 0,
+          easing: 'easeInOutQuart',
+          duration: duration,
+          complete: function () {
+            document.querySelector('.qr-area').style.display = 'none';
+            document.querySelector('.second-area').style.display = 'block';
+            const typed = new Typed('#typed-element', {
+              strings: messages,
+              typeSpeed: 50,
+              fadeOut: true,
+              onComplete: function () {
+                window.scrollTo({
+                  top: document.body.scrollHeight,
+                  behavior: 'smooth'
+                });
+                anime({
+                  targets: '.link-area',
+                  opacity: [0.1, 1],
+                  translateY: [30, 0],
+                  rotateX: {
+                    value: 360,
+                    duration: duration / 5,
+                    delay: duration,
+                    easing: 'easeOutBounce',
+                  },
+                  easing: 'easeInOutQuart',
+                  duration: duration / 2,
+                });
+              }
+            });
+          }
+        })
+      ;
+    };
+  </script>
+</body>
+
+</html>
